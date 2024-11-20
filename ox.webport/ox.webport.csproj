@@ -56,6 +56,9 @@
     <Reference Include="ox">
       <HintPath>C:\ox\net7.0\ox.dll</HintPath>
     </Reference>
+    <Reference Include="ox.casino.core">
+      <HintPath>C:\ox\net7.0\ox.casino.core.dll</HintPath>
+    </Reference>
     <Reference Include="ox.vm">
       <HintPath>C:\ox\net7.0\ox.vm.dll</HintPath>
     </Reference>
