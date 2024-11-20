@@ -1,0 +1,38 @@
+[
+  {
+    "Term": "2024-11-8",
+    "ChannelRound": "MarkSix-1",
+    "TimeStamp": "1731002853",
+    "EncodedHex": "b32050e45d9aebe9eca843af72cd98b5e1f5c1773d76792a802179f91d91093dd3c1320c838b9a4c93fb6c777828bf78f89db379778c35c9ccd9ff919e8766081cc435a24bd749b3dd64613f2b4870f955e253bcb323294c8df82190"
+  },
+  {
+    "Term": "2024-11-8",
+    "ChannelRound": "MarkSix-1",
+    "TimeStamp": "1731002276",
+    "EncodedHex": "b8bfd637a45e57b12c5600ba63a00b4fac2444067003d7c0805d895a25566dd338deab215b2aa753a4e55d1a0ab7a28d31737950b2a59f72db22d8ebab508e0948921a31b2e28798d8822a1c04280a7600635ecde5ec44ee7a4db4a3fdc7d23d2ae4bdda9d3069cfbd145edbe16d683f003ce7e5168812ce949b5d346e92104bdd16b11d1940958692250ed333"
+  },
+  {
+    "Term": "2024-11-1",
+    "ChannelRound": "MarkSix-1",
+    "TimeStamp": "1730450160",
+    "EncodedHex": "4b91a0c426cb1e46007216e741208883f8722308536b2bb06149646ffec5c6346ffca17c9bddfc12f834af7f6ea4b3dd271ab238436a9386c78e6a63379b0f62dc4448a32302100bfc50724f28503d1dd28aec77a630fb3b215d4b0c30901c719f3ef3e8a3bf22932431a8bb3693f5cc0b87b3247b0ee7e304312aeffee6a5a6dfcee3a901a9311b65ec61e5e7303f00664c47abe363ab42786251e053"
+  },
+  {
+    "Term": "2024-10-15",
+    "ChannelRound": "MarkSix-1",
+    "TimeStamp": "1728995656",
+    "EncodedHex": "162bd58ee3becbdbc36d9a6f9148ee2125815a0e592556314b5ea70266675c7ffe27f18e41b2442596d8e0f4291c5c7c98e7"
+  },
+  {
+    "Term": "2024-10-15",
+    "ChannelRound": "MarkSix-1",
+    "TimeStamp": "1728977199",
+    "EncodedHex": "dd12d7832554499f659442101374e272622ff87fb2162a83edb92eb1eafd9303687f576ea2026cb1992d78b9b9f72b0ae3782d2c65c109bddeb83a49c62a760d8980f83ca2fd8ec62cfee056e4374256acdfcf456a27f20e67f83cff575dfb99acbdab"
+  },
+  {
+    "Term": "2024-10-15",
+    "ChannelRound": "MarkSix-1",
+    "TimeStamp": "1728972622",
+    "EncodedHex": "82683a302a579a6ba87ddb18ddb825fc5d2befdb85954f3e6aacd5a6577d638403e646813f92f34190758ddcec1c8d7125f2c7c59103317df5"
+  }
+]

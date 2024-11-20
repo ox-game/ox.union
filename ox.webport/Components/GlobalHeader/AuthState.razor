@@ -1,0 +1,75 @@
+﻿@namespace OX.Mix.Components
+@inherits WebBoxComponentBase
+
+
+<Space Class="@ClassMapper.Class" Size="@("24")">
+    <SpaceItem>
+        @{
+            var classname = "statefont";
+            if (UserAgentStatus.IsNotNull() && !UserAgentStatus.IsMobile)
+            {
+                classname = "";
+            }
+            if (HasMetaMask)
+            {
+                if (this.EthID.IsNotNull())
+                {
+
+                    <Space>
+                        @if (this.LastBlock.IsNotNull())
+                        {
+                            <SpaceItem>
+                                <a class="@classname" href="/_pc/blockchain/explorer/@this.LastBlock.Index">@this.LastBlock.Index</a>
+                                <a class="ethidspan">|</a>
+                                </SpaceItem>
+                        }
+
+                        <SpaceItem>
+                            <a class="@classname">@this.Chain.ToString()</a>
+                        </SpaceItem>
+                        @if (this.TryOmitOnlyRightString(this.EthID.EthAddress, out string str,4))
+                        {
+                            <SpaceItem>
+                            <a class="ethidspan">|</a>
+                                <Text class="@classname">@str</Text>
+                            </SpaceItem>
+
+                        }
+                        else
+                        {
+                            <SpaceItem>
+                                <a class="ethidspan">|</a>
+                                <Text class="@classname" Copyable>@str</Text>
+                            </SpaceItem>
+                        }
+
+                    </Space>
+                }
+                else
+                {
+                    <a class="@classname" @onclick="ConnectMetaMask"><Avatar Src="/_content/ox.metamask/img/metamask-fox.svg" />@this.WebLocalString("连接钱包", "Connect Wallet")</a>
+                }
+            }
+            else
+            {
+                <a class="@classname" href="https://metamask.io" target="_blank">@this.WebLocalString("Metamask 没有安装,请点击安装", "No MetaMask detected. Please install") </a>
+            }
+        }
+    </SpaceItem>
+    <SpaceItem>
+        @{
+            var s = this.WebLocalString("English", "中文");
+        }
+        <Button Size="small" OnClick="_=>ChangeLanguage(s)">@s</Button>
+    </SpaceItem>
+</Space>
+<style>
+    .statefont {
+        font-size: 11px;
+    }
+
+    .ethidspan {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+</style>

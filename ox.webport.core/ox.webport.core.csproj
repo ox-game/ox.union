@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Copyright>gt</Copyright>
+		<AssemblyTitle>OX</AssemblyTitle>
+		<Version>3.0.0</Version>
+		<Authors>gt</Authors>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<AssemblyName>ox.webport.core</AssemblyName>
+		<PackageId>ox.webport.core</PackageId>
+		<PackageTags></PackageTags>
+		<PackageProjectUrl></PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl></RepositoryUrl>
+		<RootNamespace>OX.WebPort</RootNamespace>
+		<Company>gt</Company>
+		<Description>ox.webport.core</Description>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Mnemonics\**" />
+		<Compile Remove="Persistence\**" />
+		<Compile Remove="Properties\**" />
+		<EmbeddedResource Remove="Mnemonics\**" />
+		<EmbeddedResource Remove="Persistence\**" />
+		<EmbeddedResource Remove="Properties\**" />
+		<None Remove="Mnemonics\**" />
+		<None Remove="Persistence\**" />
+		<None Remove="Properties\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Models\BlockAssetRecord.cs" />
+	  <Compile Remove="Models\ClipboardMessageType.cs" />
+	  <Compile Remove="Models\TabletMessageMerge.cs" />
+	  <Compile Remove="Models\TextOrderResult.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Akka" Version="1.5.3" />
+    <PackageReference Include="Nethereum.Signer" Version="4.14.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="ox">
+	    <HintPath>C:\ox\net7.0\ox.dll</HintPath>
+	  </Reference>
+    <Reference Include="ox.vm">
+      <HintPath>C:\ox\net7.0\ox.vm.dll</HintPath>
+    </Reference>
+	</ItemGroup>
+
+
+</Project>

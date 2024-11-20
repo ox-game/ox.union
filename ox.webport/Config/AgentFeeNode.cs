@@ -1,0 +1,42 @@
+﻿using OX.IO.Json;
+
+namespace OX.WebPort.Config
+{
+    public class AgentFeeNode
+    {
+        public string MemberId;
+        public string Rate;
+        public AgentFeeNode(string memberid, string rate)
+        {
+            this.MemberId = memberid;
+            this.Rate = rate;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj is AgentFeeNode pn)
+            {
+                return pn.MemberId == this.MemberId;
+            }
+            return base.Equals(obj);
+        }
+        public override string ToString()
+        {
+            return $"{MemberId}:{Rate}";
+        }
+        public override int GetHashCode()
+        {
+            return ToString().GetHashCode();
+        }
+        public static AgentFeeNode FromJson(JObject json)
+        {
+            return new AgentFeeNode(json["memberid"].AsString(), json["rate"]?.AsString());
+        }
+        public JObject ToJson()
+        {
+            JObject account = new JObject();
+            account["memberid"] = this.MemberId;
+            account["rate"] = this.Rate;
+            return account;
+        }
+    }
+}

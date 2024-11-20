@@ -1,0 +1,89 @@
+﻿@page "/deposit/{dealerethaddressHex}"
+@layout SimpleLayout
+@inherits StatesComponentBase
+<Flex Gap="middle" Vertical>
+    <Space Class="@ClassMapper.Class" Size="@("24")" Style="padding-left:10px;">
+        <SpaceItem>
+            @{
+                var classname = "statefont";
+                if (HasMetaMask)
+                {
+                    if (this.EthID.IsNotNull())
+                    {
+                                    <Space>
+                                        <SpaceItem>
+                                            <a class="@classname">@this.Chain.ToString()</a>
+                                        </SpaceItem>
+                                        <SpaceItem>
+                                            <a class="ethidspan">|</a>
+                                            <Text class="@classname">@this.EthID.EthAddress</Text>
+                                        </SpaceItem>
+                                    </Space>
+                    }
+                    else
+                    {
+                                    <a class="@classname" @onclick="ConnectMetaMask"><Avatar Src="/_content/ox.metamask/img/metamask-fox.svg" />@this.WebLocalString("连接钱包", "Connect Wallet")</a>
+                    }
+                }
+                else
+                {
+                            <a class="@classname" href="https://metamask.io" target="_blank">@this.WebLocalString("Metamask 没有安装,请点击安装", "No MetaMask detected. Please install") </a>
+                }
+            }
+        </SpaceItem>
+
+    </Space>
+      <Space Class="@ClassMapper.Class" Size="@("24")" Style="padding-left:10px;">
+           <SpaceItem><span>@msg</span></SpaceItem>
+           </Space>
+    @* <Divider /> *@
+    <Form Model="@model"
+          Style="padding:0px 10px 0px 10px;"
+          OnFinish="HandleSubmit">
+        <FormItem Label=@this.WebLocalString("OX 场外交易池地址","OX Dealer Pool Address") LabelCol="_formItemLayout.LabelCol" WrapperCol="_formItemLayout.WrapperCol">
+            <Input @bind-Value="@this.OTCDealerOXPoolAddress" ReadOnly=true />
+        </FormItem>
+        <FormItem Label=@this.WebLocalString("场外交易池USDT余额","OX Dealer Pool USDT Balance") LabelCol="_formItemLayout.LabelCol" WrapperCol="_formItemLayout.WrapperCol">
+            <Input @bind-Value="@this.OTCDealerOXPoolBalance" ReadOnly=true />
+        </FormItem>
+
+        @*   <FormItem Label=@this.WebLocalString("Eth 场外交易商地址","Eth OTC Dealer Address") LabelCol="_formItemLayout.LabelCol" WrapperCol="_formItemLayout.WrapperCol">
+        <Input @bind-Value="@context.PoolEthAddress" ReadOnly=true />
+        </FormItem> *@
+
+        <FormItem Label=@this.WebLocalString("Eth 入金地址","Eth Deposit Address") LabelCol="_formItemLayout.LabelCol" WrapperCol="_formItemLayout.WrapperCol">
+            <Input @bind-Value="@context.FromEthAddress" ReadOnly=true />
+        </FormItem>
+        <FormItem Label=@this.WebLocalString("OX 地址","OX Address") LabelCol="_formItemLayout.LabelCol" WrapperCol="_formItemLayout.WrapperCol">
+            <Input Placeholder=@this.WebLocalString("输入接收OX资产的地址","Enter the address to receive OX assets") @bind-Value="@context.OxAddress" />
+        </FormItem>
+        <FormItem Label=@this.WebLocalString("Eth 金额","Eth Amount") LabelCol="_formItemLayout.LabelCol" WrapperCol="_formItemLayout.WrapperCol">
+            <Input Placeholder=@this.WebLocalString("输入要入金的以太坊资产金额","Enter the Eth amount to buy") @bind-Value="@context.Amount" />
+        </FormItem>
+        <FormItem Label=" " Style="margin-top:32px" WrapperCol="_submitFormLayout.WrapperCol">
+            <Button Type="primary" HtmlType="submit">
+                @this.WebLocalString("提交", "Submit")
+            </Button>
+        </FormItem>
+    </Form>
+    @if (success)
+    {
+            <Result Status="success"
+                    Title=@this.WebLocalString("成功","Success")
+                    SubTitle=@this.WebLocalString($"以太坊交易已经提交", $"Ethereum transaction has been attempted")>
+                <Extra>
+                    <Paragraph><Text Strong Copyable>@this.ethtxid</Text></Paragraph>
+                </Extra>
+            </Result>
+    }
+</Flex>
+<style>
+    .statefont {
+        font-size: 11px;
+    }
+
+    .ethidspan {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+</style>
